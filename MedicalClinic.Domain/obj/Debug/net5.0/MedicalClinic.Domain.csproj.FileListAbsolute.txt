@@ -1,0 +1,12 @@
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\bin\Debug\net5.0\MedicalClinic.Domain.deps.json
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\bin\Debug\net5.0\MedicalClinic.Domain.dll
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\bin\Debug\net5.0\ref\MedicalClinic.Domain.dll
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\bin\Debug\net5.0\MedicalClinic.Domain.pdb
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\obj\Debug\net5.0\MedicalClinic.Domain.csprojAssemblyReference.cache
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\obj\Debug\net5.0\MedicalClinic.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\obj\Debug\net5.0\MedicalClinic.Domain.AssemblyInfoInputs.cache
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\obj\Debug\net5.0\MedicalClinic.Domain.AssemblyInfo.cs
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\obj\Debug\net5.0\MedicalClinic.Domain.csproj.CoreCompileInputs.cache
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\obj\Debug\net5.0\MedicalClinic.Domain.dll
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\obj\Debug\net5.0\ref\MedicalClinic.Domain.dll
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Domain\obj\Debug\net5.0\MedicalClinic.Domain.pdb

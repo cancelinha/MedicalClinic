@@ -1,0 +1,17 @@
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\bin\Debug\net5.0\MedicalClinic.Infrastructure.deps.json
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\bin\Debug\net5.0\MedicalClinic.Infrastructure.dll
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\bin\Debug\net5.0\ref\MedicalClinic.Infrastructure.dll
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\bin\Debug\net5.0\MedicalClinic.Infrastructure.pdb
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\bin\Debug\net5.0\MedicalClinic.Application.dll
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\bin\Debug\net5.0\MedicalClinic.Domain.dll
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\bin\Debug\net5.0\MedicalClinic.Application.pdb
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\bin\Debug\net5.0\MedicalClinic.Domain.pdb
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\obj\Debug\net5.0\MedicalClinic.Infrastructure.csprojAssemblyReference.cache
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\obj\Debug\net5.0\MedicalClinic.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\obj\Debug\net5.0\MedicalClinic.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\obj\Debug\net5.0\MedicalClinic.Infrastructure.AssemblyInfo.cs
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\obj\Debug\net5.0\MedicalClinic.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\obj\Debug\net5.0\MedicalClinic.Infrastructure.csproj.CopyComplete
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\obj\Debug\net5.0\MedicalClinic.Infrastructure.dll
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\obj\Debug\net5.0\ref\MedicalClinic.Infrastructure.dll
+C:\Users\GUILHERME CANCELINHA\OneDrive\Área de Trabalho\Projeto Faculdade\MedicalClinic.WebApi\MedicalClinic.Infrastructure\obj\Debug\net5.0\MedicalClinic.Infrastructure.pdb
