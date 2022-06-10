@@ -21,18 +21,14 @@ namespace MedicalClinic.Infrastructure.Data.Repositories
 			this.connectionString = connectionString;
 		}
 
-		public List<GetAllProductDto> GetAll(FilterProductDto filter)
+		public List<GetAllProductDto> GetAllMaster(FilterProductDto filter)
 		{
 			try
 			{
 
 				var field = string.Empty;
 				Int64 num;
-				if (Int64.TryParse(filter.Search.Replace(".", "").Replace("/", "").Replace("-", ""), out num))
-				{
-					field = "A.name";
-				}
-				var where = !string.IsNullOrEmpty(filter.Search) ? "WHERE A.enabled = 1 AND " + field + " like '%' + @Search + '%' " : "WHERE A.enabled = 1 ";
+				var where = !string.IsNullOrEmpty(filter.Search) ? "WHERE A.enabled = 1 AND A.Name like '%' + @Search + '%' " : "WHERE A.enabled = 1 ";
 				using (IDbConnection db = new SqlConnection(connectionString))
 				{
 					string sql = @"DECLARE @PageNumber AS INT, @RowspPage AS INT 
@@ -45,11 +41,40 @@ namespace MedicalClinic.Infrastructure.Data.Repositories
 								   "OFFSET((@PageNumber - 1) * @RowspPage) ROWS " +
 								   "FETCH NEXT @RowspPage ROWS ONLY; ";
 
+					var result = db.Query<GetAllProductDto>(sql, new { Pn = filter.PageNumber, Rp = filter.RowsPerPage, Search = filter.Search}).ToList();
+					return result;
+				}
+			}
+			catch (Exception ex)
+			{
+				throw;
+			}
+		}
+		public List<GetAllProductDto> GetAll(FilterProductDto filter)
+		{
+			try
+			{
+
+				var field = string.Empty;
+				Int64 num;
+				var where = !string.IsNullOrEmpty(filter.Search) ? "WHERE A.enabled = 1 AND A.Name like '%' + @Search + '%' " : "WHERE A.enabled = 1 ";
+				using (IDbConnection db = new SqlConnection(connectionString))
+				{
+					string sql = @"DECLARE @PageNumber AS INT, @RowspPage AS INT 
+                                   SET @PageNumber = @Pn
+                                   SET @RowspPage = @Rp 
+                                   SELECT ROW_NUMBER() OVER(ORDER BY A.Name) AS NUMBERUSER, A.Id, A.Name, A.BatchNumber, A.[Function], A.Allocated, A.Validity, A.CreatedAt, A.UpdatedAt, A.Enabled, TotalCount = Count(*) Over()  
+                                   FROM [Product] AS A (nolock) "
+								  + where +
+								   "ORDER BY Name " +
+								   "OFFSET((@PageNumber - 1) * @RowspPage) ROWS " +
+								   "FETCH NEXT @RowspPage ROWS ONLY; ";
+
 					var result = db.Query<GetAllProductDto>(sql, new { Pn = filter.PageNumber, Rp = filter.RowsPerPage, Search = filter.Search }).ToList();
 					return result;
 				}
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 				throw;
 			}
@@ -95,8 +120,8 @@ namespace MedicalClinic.Infrastructure.Data.Repositories
 				{
 					try
 					{
-						string insertProductQuery = @"INSERT INTO [dbo].[Product](Name,BatchNumber,Function,Allocated,CreatedAt,UpdatedAt,enabled) 
-                        VALUES (@Name,@BatchNumber,@Function,@Allocated,@CreatedAt,@UpdatedAt,@enabled);
+						string insertProductQuery = @"INSERT INTO [dbo].[Product](Name,BatchNumber,[Function],Allocated,Validity, Quantity,CreatedAt,UpdatedAt,enabled) 
+                        VALUES (@Name,@BatchNumber,@Function,@Allocated,@Validity, @Quantity,@CreatedAt,@UpdatedAt,@enabled);
                         SELECT CAST(SCOPE_IDENTITY() as int)";
 
 						var productId = db.Query<int>(insertProductQuery, new
@@ -106,6 +131,8 @@ namespace MedicalClinic.Infrastructure.Data.Repositories
 							BatchNumber = product.BatchNumber,
 							Function = product.Function,
 							Allocated = product.Allocated,
+							Validity = product.Validity,
+							Quantity = product.Quantity,
 							CreatedAt = DateTime.Now,
 							UpdatedAt = DateTime.Now,
 							Enabled = product.Enabled,
@@ -134,7 +161,7 @@ namespace MedicalClinic.Infrastructure.Data.Repositories
 				{
 					try
 					{
-						string updateProductQuery = @" UPDATE [dbo].[Product] SET Name = @Name, BatchNumber = @BatchNumber, Function = @Function, Allocated = @Allocated, UpdatedAt = @UpdatedAt, enabled = @enabled
+						string updateProductQuery = @" UPDATE [dbo].[Product] SET Name = @Name, BatchNumber = @BatchNumber, [Function] = @Function, Allocated = @Allocated,Validity = @Validity, Quantity = @Quantity, UpdatedAt = @UpdatedAt, enabled = @enabled
                                                     WHERE Id = @Id ";
 
 						var productId = db.Query<int>(updateProductQuery, new
@@ -143,6 +170,8 @@ namespace MedicalClinic.Infrastructure.Data.Repositories
 							Name = product.Name,
 							BatchNumber = product.BatchNumber,
 							Function = product.Function,
+							Validity = product.Validity,
+							Quantity = product.Quantity,
 							Allocated = product.Allocated,
 							UpdatedAt = DateTime.Now,
 							enabled = product.Enabled,
@@ -160,40 +189,40 @@ namespace MedicalClinic.Infrastructure.Data.Repositories
 				return product.Id;
 			}
 		}
-		public async Task<int> Delete(int productId)
+		public async Task<int> Delete(int idProduto)
 		{
 			using (IDbConnection db = new SqlConnection(connectionString))
 			{
 				db.Open();
 				using (var transactionScope = db.BeginTransaction())
 				{
-					var result = 0;
-					var resultSelect = 0;
 					try
 					{
-						var select = "SELECT COUNT(Id) FROM [dbo].[Product] WHERE Id = @Id";
-						resultSelect = db.Query<int>(select, new { Id = productId }).FirstOrDefault();
-
-					}
-					catch (Exception ex)
-					{
-						throw;
-					}
-					try
-					{
-						if (resultSelect > 0)
+						string select = @"Select * from [dbo].[product] where Id = @Id ";
+						var selectDelete = db.Query<ProductDto>(select, new { Id = idProduto }, transactionScope).FirstOrDefault();
+						transactionScope.Commit();
+						if (selectDelete == null || selectDelete.Id == 0)
 						{
-							var delete = @"Delete [dbo].[Product] WHERE Id = @Id";
-							result = db.Execute(delete, new { Id = productId }, transactionScope);
-							transactionScope.Commit();
+							return idProduto = 0;
 						}
 					}
-					catch (Exception ex)
+					catch (Exception)
 					{
 						transactionScope.Rollback();
+						idProduto = 0;
 						throw;
 					}
-					return result;
+					try
+					{
+						string delete = @"Delete from [dbo].[Product] WHERE Id = @Id ";
+						var selectDelete = db.Query<int>(delete, new { Id = idProduto }).FirstOrDefault();
+						return 1;
+					}
+					catch (Exception ex)
+					{
+						idProduto = 0;
+						throw;
+					}
 				}
 			}
 		}

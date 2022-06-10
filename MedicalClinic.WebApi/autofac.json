@@ -1,43 +1,22 @@
 ﻿{
-  "defaultAssembly": "MedicalClinic.Infrastructure",
-  "modules": [
-    {
-      "type": "MedicalClinic.WebApi.Module, MedicalClinic.WebApi",
-      "properties": {
-      },
-      "CarrierConfig": {
-        "FeePercent": "25",
-        "IdCorreioPac": 2,
-        "CodAdmCorreio": "19086679",
-        "KeyCorreio": "32618607",
-        "IdCorreioSedex": 11,
-        "IdTotalExpress": 6
-      },
-      "DataGaleriaPage": {
-        "Name": "A A K Servicos Tec Interme Negocios LTDA",
-        "Adress": "Rua Barao de Duprat",
-        "Number": "315",
-        "District": "Centro Historico de Sao Paulo",
-        "ZipCode": "01023040",
-        "City": "Sao Paulo",
-        "State": "SP",
-        "PhoneNumber": "1123064022",
-        "email": "galeriapage@galeriapage.com.br"
-      }
-    },
-    {
-      "type": "MedicalClinic.Infrastructure.ApplicationModule",
-      "properties": {
-      }
-    },
-    {
-      "type": "MedicalClinic.Infrastructure.Data.Module",
-      "properties": {
-        "ConnectionString": "Persist Security Info=False;User ID=pageexpress;Password=pageexpress!@;Initial Catalog=Page Express - Usuario;Server=10.0.2.70;Persist Security Info=False;User ID=pageexpress;Password=pageexpress!@;Initial Catalog=Page Express - Usuario;Server=10.0.2.70;MultipleActiveResultSets=True",
-        //"ConnectionString": "Persist Security Info=False;User ID=pageexpress;Password=pageexpress!@;Initial Catalog=PicEnvios - Usuario;Server=10.0.2.70;Persist Security Info=False;User ID=pageexpress;Password=pageexpress!@;Initial Catalog=PicEnvios - Usuario;Server=10.0.2.70;MultipleActiveResultSets=True",
-        "endPoint": "https://datahlg.galeriapage.com.br/api/",
-        "endPointReturnCorreios": "https://apphom.correios.com.br/logisticaReversaWS/logisticaReversaService/logisticaReversaWS"
-      }
-    }
-  ]
+	"defaultAssembly": "MedicalClinic.Infrastructure",
+	"modules": [
+		{
+			"type": "MedicalClinic.WebApi.Module, MedicalClinic.WebApi",
+			"properties": {
+			}
+		},
+		{
+			"type": "MedicalClinic.Infrastructure.ApplicationModule",
+			"properties": {
+			}
+		},
+		{
+			"type": "MedicalClinic.Infrastructure.Data.Module",
+			"properties": {
+				"ConnectionString": "Persist Security Info=False;Integrated Security=true;Initial Catalog=MedicalClinic ;Server=NW01P023\\SQLCANCELINHA;Persist Security Info=False;Integrated Security=true;Initial Catalog=MedicalClinic;Server=NW01P023\\SQLCANCELINHA;",
+				//"ConnectionString": "Persist Security Info=False;User ID=pageexpress;Password=pageexpress!@;Initial Catalog=PicEnvios - Usuario;Server=10.0.2.70;Persist Security Info=False;User ID=pageexpress;Password=pageexpress!@;Initial Catalog=PicEnvios - Usuario;Server=10.0.2.70;MultipleActiveResultSets=True",
+			}
+		}
+	]
 }

@@ -24,6 +24,7 @@ namespace MedicalClinic.WebApi.Controllers
 		   IGetLoginDetailsUseCase getLoginDetailsUseCase)
 
 		{
+			_getUserLoginDetailsUseCase = getUserLoginDetailsUseCase;
 			_loginPresenter = loginPresenter;
 			_getLoginDetailsUseCase = getLoginDetailsUseCase;
 		}

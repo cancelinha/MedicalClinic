@@ -10,6 +10,7 @@ namespace MedicalClinic.Application.Repositories
 {
 	public interface IProductRepository
 	{
+        List<GetAllProductDto> GetAllMaster(FilterProductDto filter);
         List<GetAllProductDto> GetAll(FilterProductDto filter);
         ProductDto GetByProductName(string name);
         Task<int> Add(ProductDto product);

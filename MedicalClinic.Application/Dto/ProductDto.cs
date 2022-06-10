@@ -14,18 +14,22 @@ namespace MedicalClinic.Application.Dto
 		public string BatchNumber { get; set; }
 		public string Function { get; set; }
 		public bool Allocated { get; set; }
+		public DateTime Validity { get; set; }
+		public int Quantity { get; set; }
 		public DateTime CreatedAt { get; set; }
 		public DateTime UpdatedAt { get; set; }
 		public bool Enabled { get; set; }
 		public int TotalCount { get; set; }
 		public ProductDto() { }
 
-		public static ProductDto Load(int id, string name, string batchNumber, string function, bool allocated, DateTime createdAt, DateTime updatedAt, bool enabled, int totalCount)
+		public static ProductDto Load(int id, string name, string batchNumber, string function, bool allocated,DateTime valid,int quant, DateTime createdAt, DateTime updatedAt, bool enabled, int totalCount)
 		{
 			ProductDto product = new ProductDto();
 			product.Id = id;
 			product.Name = name;
 			product.BatchNumber = batchNumber;
+			product.Validity = valid;
+			product.Quantity = quant;
 			product.Function = function;
 			product.Allocated = allocated;
 			product.CreatedAt = createdAt;
@@ -63,6 +67,8 @@ namespace MedicalClinic.Application.Dto
 			public string BatchNumber { get; set; }
 			public string Function { get; set; }
 			public bool Allocated { get; set; }
+			public DateTime Validity { get; set; }
+			public int Quantity { get; set; }
 			public DateTime UpdatedAt { get; set; }
 			public bool Enabled { get; set; }
 			public int TotalCount { get; set; }
@@ -73,7 +79,7 @@ namespace MedicalClinic.Application.Dto
 
 			public UpdateProductDto() { }
 
-			public static UpdateProductDto Load(int id, string name, string batchNumber, string function, bool allocated, DateTime updatedAt, bool enabled, int totalCount)
+			public static UpdateProductDto Load(int id, string name, string batchNumber, DateTime valid, int quant, string function, bool allocated, DateTime updatedAt, bool enabled, int totalCount)
 
 			{
 				UpdateProductDto product = new UpdateProductDto();
@@ -82,6 +88,8 @@ namespace MedicalClinic.Application.Dto
 				product.BatchNumber = batchNumber;
 				product.Function = function;
 				product.Allocated = allocated;
+				product.Validity = valid;
+				product.Quantity = quant;
 				product.UpdatedAt = updatedAt;
 				product.Enabled = enabled;
 				product.TotalCount = totalCount;
@@ -98,6 +106,8 @@ namespace MedicalClinic.Application.Dto
 		public string BatchNumber { get; set; }
 		public string Function { get; set; }
 		public bool Allocated { get; set; }
+		public DateTime Validity { get; set; }
+		public int Quantity { get; set; }
 		public DateTime CreatedAt { get; set; }
 		public DateTime UpdatedAt { get; set; }
 		public bool Enabled { get; set; }
@@ -106,7 +116,7 @@ namespace MedicalClinic.Application.Dto
 
 		public GetAllProductDto() { }
 
-		public static GetAllProductDto Load( string name, string batchNumber, string function, bool allocated, DateTime updatedAt, DateTime createdAt, bool enabled, int totalCount)
+		public static GetAllProductDto Load( string name, string batchNumber, string function, bool allocated, DateTime valid, int quant, DateTime updatedAt, DateTime createdAt, bool enabled, int totalCount)
 
 		{
 			GetAllProductDto product = new GetAllProductDto();
@@ -114,6 +124,8 @@ namespace MedicalClinic.Application.Dto
 			product.BatchNumber = batchNumber;
 			product.Function = function;
 			product.Allocated = allocated;
+			product.Validity = valid;
+			product.Quantity = quant;
 			product.CreatedAt = createdAt;
 			product.UpdatedAt = updatedAt;
 			product.Enabled = enabled;

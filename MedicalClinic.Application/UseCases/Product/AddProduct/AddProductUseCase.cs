@@ -40,10 +40,17 @@ namespace MedicalClinic.Application.UseCases.Product.AddProduct
 					newProduct.Id = await _ProductRepository.Add(obj);
 				}
 				Product.Id = newProduct.Id;
-
+				if(newProduct.Id == 0 || newProduct == null)
+				{
+					return result = new Result<ProductDto>
+					{
+						Message = "Erro ao inserir Produto!",
+						Sucess = false,
+					};
+				}
 				result = new Result<ProductDto>
 				{
-					Message = ProductName != null ? message : (newProduct == null ? "Erro ao inserir o Produto" : "Ok"),
+					Message = ProductName != null ? message : (newProduct == null || newProduct.Id == 0 ? "Erro ao inserir o Produto" : "Ok"),
 					Sucess = ProductName != null ? false : (newProduct == null ? false : true),
 					Data = ProductName != null ? null : (newProduct == null ? null : Product),
 				};

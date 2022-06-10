@@ -13,11 +13,13 @@ namespace MedicalClinic.Application.UseCases.Product.GetAllProduct
     public sealed class GetAllProductUseCase : IGetAllProductUseCase
     {
         private readonly IProductRepository _ProductRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
 
-        public GetAllProductUseCase(IMapper mapper, IProductRepository ProductRepository)
+        public GetAllProductUseCase(IMapper mapper, IProductRepository ProductRepository, IUserRepository userRepository)
         {
             _ProductRepository = ProductRepository;
+            _userRepository = userRepository;
             _mapper = mapper;
         }
 
@@ -26,7 +28,12 @@ namespace MedicalClinic.Application.UseCases.Product.GetAllProduct
             var result = new Result<List<GetAllProductDto>>();
             try
             {
+                var typeUser = _userRepository.GetTypeUser(filter.UserId);
                 List<GetAllProductDto> Product = _ProductRepository.GetAll(filter);
+                if(typeUser.TypeUserId != 3)
+				{
+                    Product = _ProductRepository.GetAllMaster(filter);
+                }
                 if (Product == null || Product.Count == 0)
                 {
                     return result = new Result<List<GetAllProductDto>>
@@ -51,6 +58,8 @@ namespace MedicalClinic.Application.UseCases.Product.GetAllProduct
                         Name = q.Name,
                         BatchNumber = q.BatchNumber,
                         Function = q.Function,
+                        Quantity = q.Quantity,
+                        Validity = q.Validity,
                         Allocated = q.Allocated,
                         CreatedAt = q.CreatedAt,
                         Enabled = q.Enabled

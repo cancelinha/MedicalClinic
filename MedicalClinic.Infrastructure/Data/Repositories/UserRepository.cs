@@ -59,7 +59,7 @@ namespace MedicalClinic.Infrastructure.Data.Repositories
 				using (IDbConnection db = new SqlConnection(connectionString))
 				{
 					var result = new UserDto();
-					string sqlUserName = @"  SELECT T.Name as TypeUser,u.TypeUserId,u.Name,u.DocumentNumber,u.Email, l.*
+					string sqlUserName = @"  SELECT T.Name as TypeUser,u.TypeUserId,u.Name,u.Email, l.*
 									FROM [dbo].[User] as u
 									LEFT JOIN Login as l ON u.Id = l.UserId 
 									LEFT JOIN [dbo].[TypeUser] T on u.typeUserId = T.Id
